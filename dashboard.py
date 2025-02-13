@@ -11,7 +11,6 @@ data2 = pd.read_csv('day.csv')
 
 # Judul Dashboard
 st.title("Dashboard Analisis Penyewaan Sepeda")
-st.subheader("Dokumentasi")
 st.write("""Analisis ini bertujuan untuk memahami pola penyewaan sepeda berdasarkan data yang tersedia. 
 Dengan menganalisis data penyewaan sepeda, kita dapat mengidentifikasi tren dan pola yang 
 dapat membantu dalam pengambilan keputusan terkait pengelolaan penyewaan sepeda. 
