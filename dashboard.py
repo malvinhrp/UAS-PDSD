@@ -18,7 +18,7 @@ Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan k
 # Pilihan untuk selectbox
 options = ["Informasi Dataset","Deskripsi Data"]
 selected_option = st.selectbox("Select:", options)
-if st.button("Tampilkan"):
+if st.button("Show"):
     if selected_option == "Informasi Dataset":
         st.subheader("Dataset Per Jam")
         st.write(data1)
@@ -38,7 +38,7 @@ options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-ra
 selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
 
 # Visualisasi Rata-rata Penyewaan per Jam
-if st.button("Perlihatkan"):
+if st.button("Tampilkan"):
     if selected_option == "Rata-rata Penyewaan per Jam":
         st.subheader("Rata-rata Penyewaan per Jam")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
