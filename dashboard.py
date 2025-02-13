@@ -49,7 +49,7 @@ if st.button("Tampilkan"):
         ax.set_title('Rata-rata Penyewaan per Jam')
         ax.set_xlabel('Jam')
         ax.set_ylabel('Rata-rata Penyewaan')
-        ax.figure(figsize=(5, 3))
+        plt.figure(figsize=(5, 3))
         st.pyplot(fig)
 
 
