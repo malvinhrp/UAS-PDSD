@@ -15,19 +15,7 @@ Dengan menganalisis data penyewaan sepeda, kita dapat mengidentifikasi tren dan 
 dapat membantu dalam pengambilan keputusan terkait pengelolaan penyewaan sepeda. 
 Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan kita untuk melihat variasi penyewaan berdasarkan waktu.""")
 
-# Menampilkan informasi dataset
-if st.checkbox("Tampilkan Informasi Dataset"):
-    st.subheader("Dataset Per Jam")
-    st.write(data1)
-    st.subheader("Dataset Per Hari")
-    st.write(data2)
 
-# Menampilkan deskripsi data
-if st.checkbox("Tampilkan Deskripsi Data"):
-    st.subheader("Deskripsi Dataset Per Jam")
-    st.write(data1.describe())
-    st.subheader("Deskripsi Dataset Per Hari")
-    st.write(data2.describe())
 
 # Menambahkan analisis lanjutan
 # Pilihan untuk selectbox
@@ -96,4 +84,17 @@ if st.button("Tampilkan"):
         ax.set_ylabel('Frekuensi', fontweight='bold')
         st.pyplot(fig)
 
+# Menampilkan informasi dataset
+if st.checkbox("Tampilkan Informasi Dataset"):
+    st.subheader("Dataset Per Jam")
+    st.write(data1)
+    st.subheader("Dataset Per Hari")
+    st.write(data2)
+
+# Menampilkan deskripsi data
+if st.checkbox("Tampilkan Deskripsi Data"):
+    st.subheader("Deskripsi Dataset Per Jam")
+    st.write(data1.describe())
+    st.subheader("Deskripsi Dataset Per Hari")
+    st.write(data2.describe())
 
