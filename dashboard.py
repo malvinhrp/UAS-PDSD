@@ -15,6 +15,21 @@ Dengan menganalisis data penyewaan sepeda, kita dapat mengidentifikasi tren dan 
 dapat membantu dalam pengambilan keputusan terkait pengelolaan penyewaan sepeda. 
 Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan kita untuk melihat variasi penyewaan berdasarkan waktu.""")
 
+# Pilihan untuk selectbox
+options = ["Informasi Dataset","Deskripsi Data"]
+selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
+if st.button("Tampilkan"):
+    if selected_option == "Informasi Dataset":
+        st.subheader("Dataset Per Jam")
+        st.write(data1)
+        st.subheader("Dataset Per Hari")
+        st.write(data2)
+
+    elif selected_option == "Deskripsi Data":
+        st.subheader("Deskripsi Dataset Per Jam")
+        st.write(data1.describe())
+        st.subheader("Deskripsi Dataset Per Hari")
+        st.write(data2.describe())
 
 
 # Menambahkan analisis lanjutan
