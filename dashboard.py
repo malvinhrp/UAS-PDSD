@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-st.set_page_config(layout="wide")
+st.set_page_config(layout="grid")
 
 
 # Membaca data dari file CSV
