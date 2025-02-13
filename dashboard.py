@@ -29,37 +29,38 @@ if st.checkbox("Tampilkan Deskripsi Data"):
     st.subheader("Deskripsi Dataset Per Hari")
     st.write(data2.describe())
 
-# Visualisasi Rata-rata Penyewaan per Jam
-st.subheader("Rata-rata Penyewaan per Jam")
-st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
-
-rata_rata_penyewaan_per_jam = data1.groupby('hr')['cnt'].mean()
-fig, ax = plt.subplots()
-rata_rata_penyewaan_per_jam.plot(kind='bar', color='red', edgecolor='black', ax=ax)
-ax.set_title('Rata-rata Penyewaan per Jam')
-ax.set_xlabel('Jam')
-ax.set_ylabel('Rata-rata Penyewaan')
-st.pyplot(fig)
-
-# Visualisasi Rata-rata Penyewaan per Hari
-st.subheader("Rata-rata Penyewaan per Hari")
-st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per hari """)
-rata_rata_penyewaan_per_hari = data1.groupby('weekday')['cnt'].mean()
-fig, ax = plt.subplots()
-rata_rata_penyewaan_per_hari.plot(kind='bar', color='skyblue', edgecolor='black', ax=ax)
-ax.set_title('Rata-rata Penyewaan per Hari')
-ax.set_xticks(ticks=np.arange(7), labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'], fontweight='bold', rotation=0)
-ax.set_ylabel('Rata-rata Penyewaan')
-st.pyplot(fig)
-
 # Menambahkan analisis lanjutan
 # Pilihan untuk selectbox
-options = ["Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
+options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
 selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
 
-# Rata-rata penyewaan berdasarkan bulan
+# Visualisasi Rata-rata Penyewaan per Jam
 if st.button("Tampilkan"):
-    if selected_option == "Rata-rata Penyewaan per Bulan":
+    if selected_option == "Rata-rata Penyewaan per Jam":
+        st.subheader("Rata-rata Penyewaan per Jam")
+        st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
+        rata_rata_penyewaan_per_jam = data1.groupby('hr')['cnt'].mean()
+        fig, ax = plt.subplots()
+        rata_rata_penyewaan_per_jam.plot(kind='bar', color='red', edgecolor='black', ax=ax)
+        ax.set_title('Rata-rata Penyewaan per Jam')
+        ax.set_xlabel('Jam')
+        ax.set_ylabel('Rata-rata Penyewaan')
+        st.pyplot(fig)
+
+# Visualisasi Rata-rata Penyewaan per Hari
+    elif selected_option == "Rata-rata Penyewaan per Hulan":
+        st.subheader("Rata-rata Penyewaan per Hari")
+        st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per hari """)
+        rata_rata_penyewaan_per_hari = data1.groupby('weekday')['cnt'].mean()
+        fig, ax = plt.subplots()
+        rata_rata_penyewaan_per_hari.plot(kind='bar', color='skyblue', edgecolor='black', ax=ax)
+        ax.set_title('Rata-rata Penyewaan per Hari')
+        ax.set_xticks(ticks=np.arange(7), labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'], fontweight='bold', rotation=0)
+        ax.set_ylabel('Rata-rata Penyewaan')
+        st.pyplot(fig)
+
+# Rata-rata penyewaan berdasarkan bulan
+    elif selected_option == "Rata-rata Penyewaan per Bulan":
         st.subheader("Rata-rata Penyewaan per Bulan")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per bulan""")
         rata_rata_penyewaan_per_bulan_data2 = data2.groupby('mnth')['cnt'].mean()
