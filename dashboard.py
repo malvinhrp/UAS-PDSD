@@ -17,7 +17,7 @@ Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan k
 
 # Pilihan untuk selectbox
 options = ["Informasi Dataset","Deskripsi Data"]
-selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
+selected_option = st.selectbox("Select:", options)
 if st.button("Tampilkan"):
     if selected_option == "Informasi Dataset":
         st.subheader("Dataset Per Jam")
@@ -98,18 +98,3 @@ if st.button("Perlihatkan"):
         ax.set_xlabel('Jumlah Penyewaan', fontweight='bold')
         ax.set_ylabel('Frekuensi', fontweight='bold')
         st.pyplot(fig)
-
-# Menampilkan informasi dataset
-if st.checkbox("Tampilkan Informasi Dataset"):
-    st.subheader("Dataset Per Jam")
-    st.write(data1)
-    st.subheader("Dataset Per Hari")
-    st.write(data2)
-
-# Menampilkan deskripsi data
-if st.checkbox("Tampilkan Deskripsi Data"):
-    st.subheader("Deskripsi Dataset Per Jam")
-    st.write(data1.describe())
-    st.subheader("Deskripsi Dataset Per Hari")
-    st.write(data2.describe())
-
