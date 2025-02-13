@@ -44,12 +44,11 @@ if st.button("Tampilkan"):
         st.subheader("Rata-rata Penyewaan per Jam")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
         rata_rata_penyewaan_per_jam = data1.groupby('hr')['cnt'].mean()
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(5, 3))
         rata_rata_penyewaan_per_jam.plot(kind='bar', color='red', edgecolor='black', ax=ax)
         ax.set_title('Rata-rata Penyewaan per Jam')
         ax.set_xlabel('Jam')
         ax.set_ylabel('Rata-rata Penyewaan')
-        plt.figure(figsize=(5, 3))
         st.pyplot(fig)
 
 
