@@ -36,7 +36,7 @@ if st.button("Tampilkan"):
         st.pyplot(fig)
 
 # Visualisasi Rata-rata Penyewaan per Hari
-    elif selected_option == "Rata-rata Penyewaan per Hulan":
+    elif selected_option == "Rata-rata Penyewaan per Hari":
         st.subheader("Rata-rata Penyewaan per Hari")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per hari """)
         rata_rata_penyewaan_per_hari = data1.groupby('weekday')['cnt'].mean()
