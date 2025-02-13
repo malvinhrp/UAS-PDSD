@@ -9,6 +9,11 @@ data2 = pd.read_csv('day.csv')
 
 # Judul Dashboard
 st.title("Dashboard Analisis Penyewaan Sepeda")
+st.subheader("Dokumentasi")
+st.write("""Analisis ini bertujuan untuk memahami pola penyewaan sepeda berdasarkan data yang tersedia. 
+Dengan menganalisis data penyewaan sepeda, kita dapat mengidentifikasi tren dan pola yang 
+dapat membantu dalam pengambilan keputusan terkait pengelolaan penyewaan sepeda. 
+Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan kita untuk melihat variasi penyewaan berdasarkan waktu.""")
 
 # Menampilkan informasi dataset
 if st.checkbox("Tampilkan Informasi Dataset"):
@@ -26,6 +31,8 @@ if st.checkbox("Tampilkan Deskripsi Data"):
 
 # Visualisasi Rata-rata Penyewaan per Jam
 st.subheader("Rata-rata Penyewaan per Jam")
+st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
+
 rata_rata_penyewaan_per_jam = data1.groupby('hr')['cnt'].mean()
 fig, ax = plt.subplots()
 rata_rata_penyewaan_per_jam.plot(kind='bar', color='red', edgecolor='black', ax=ax)
@@ -36,6 +43,7 @@ st.pyplot(fig)
 
 # Visualisasi Rata-rata Penyewaan per Hari
 st.subheader("Rata-rata Penyewaan per Hari")
+st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per hari """)
 rata_rata_penyewaan_per_hari = data1.groupby('weekday')['cnt'].mean()
 fig, ax = plt.subplots()
 rata_rata_penyewaan_per_hari.plot(kind='bar', color='skyblue', edgecolor='black', ax=ax)
@@ -53,6 +61,7 @@ selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
 if st.button("Tampilkan"):
     if selected_option == "Rata-rata Penyewaan per Bulan":
         st.subheader("Rata-rata Penyewaan per Bulan")
+        st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per bulan""")
         rata_rata_penyewaan_per_bulan_data2 = data2.groupby('mnth')['cnt'].mean()
         fig, ax = plt.subplots()
         rata_rata_penyewaan_per_bulan_data2.plot(kind='bar', color='red', edgecolor='black')
@@ -65,6 +74,7 @@ if st.button("Tampilkan"):
 #Rata-rata penyewaan per Musim
     elif selected_option == "Rata-rata Penyewaan per Musim":
         st.subheader("Rata-rata Penyewaan per Musim")
+        st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per Musim """)
         rata_rata_penyewaan_per_musim = data2.groupby('season')['cnt'].mean()
         fig, ax = plt.subplots()
         rata_rata_penyewaan_per_musim.plot(kind='bar', color='green', edgecolor='black', ax=ax)
@@ -77,24 +87,12 @@ if st.button("Tampilkan"):
 # Visualisasi frekuensi jumlah penyewaan
     elif selected_option == "Distribusi Jumlah Penyewaan":
         st.subheader("Distribusi jumlah penyewaan")
+        st.write("""Pada visualisasi ini, grafik akan menampilkan distribusi yang diberikan berdasarkan jumlah penyewaan""")
         fig, ax = plt.subplots()
         ax.hist(data1['cnt'], bins=30, color='lightgreen', edgecolor='black', alpha=0.7)
         ax.set_title('DISTRIBUSI JUMLAH PENYEWAAN', fontweight='bold')
         ax.set_xlabel('Jumlah Penyewaan', fontweight='bold')
         ax.set_ylabel('Frekuensi', fontweight='bold')
         st.pyplot(fig)
-
-
-
-# Menambahkan dokumentasi
-st.subheader("Dokumentasi")
-st.write("""
-    Dashboard ini menyajikan analisis penyewaan sepeda berdasarkan data yang diperoleh.
-    - **Dataset Per Jam**: Menampilkan data penyewaan sepeda per jam.
-    - **Dataset Per Hari**: Menampilkan data penyewaan sepeda per hari.
-    - **Rata-rata Penyewaan per Jam**: Visualisasi rata-rata penyewaan sepeda berdasarkan jam.
-    - **Rata-rata Penyewaan per Hari**: Visualisasi rata-rata penyewaan sepeda berdasarkan hari.
-    - **Rata-rata Penyewaan per Musim**: Visualisasi rata-rata penyewaan sepeda berdasarkan musim.
-""")
 
 
