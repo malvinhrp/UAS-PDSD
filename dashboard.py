@@ -49,8 +49,9 @@ if st.button("Tampilkan"):
         ax.set_title('Rata-rata Penyewaan per Jam')
         ax.set_xlabel('Jam')
         ax.set_ylabel('Rata-rata Penyewaan')
+        st.set_pyplot_config(size="50%")
         st.pyplot(fig)
-        st.set_page_config(layout="wide")
+
 
 # Visualisasi Rata-rata Penyewaan per Hari
     elif selected_option == "Rata-rata Penyewaan per Hari":
