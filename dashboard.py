@@ -108,7 +108,7 @@ if st.button("Tampilkan"):
         st.pyplot(fig)
 
 # Pilihan untuk selectbox
-options = ["Informasi Dataset","Deskripsi Data"]
+"options = ["Informasi Dataset","Deskripsi Data"]
 selected_option = st.selectbox("Select:", options)
 if st.button("Show"):
     if selected_option == "Informasi Dataset":
