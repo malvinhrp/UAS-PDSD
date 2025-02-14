@@ -99,7 +99,7 @@ selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
         st.pyplot(fig)'''
 
 # Rata-rata penyewaan berdasarkan bulan
-    if selected_option == "Rata-rata Penyewaan per Bulan":
+if selected_option == "Rata-rata Penyewaan per Bulan":
         st.subheader("Rata-rata Penyewaan per Bulan")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per bulan""")
         rata_rata_penyewaan_per_bulan_data2 = data2.groupby('mnth')['cnt'].mean()
