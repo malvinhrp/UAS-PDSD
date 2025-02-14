@@ -69,11 +69,11 @@ with col2:
     st.pyplot(fig)
 
 # Pilihan untuk selectbox
-'''options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
+options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
 selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
 
 # Visualisasi Rata-rata Penyewaan per Jam
-if st.button("Tampilkan"):
+'''if st.button("Tampilkan"):
     if selected_option == "Rata-rata Penyewaan per Jam":
         st.subheader("Rata-rata Penyewaan per Jam")
         st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
