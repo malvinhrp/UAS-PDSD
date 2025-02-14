@@ -16,20 +16,27 @@ dapat membantu dalam pengambilan keputusan terkait pengelolaan penyewaan sepeda.
 Data yang digunakan mencakup penyewaan per jam dan per hari, yang memungkinkan kita untuk melihat variasi penyewaan berdasarkan waktu.""")
 
 # Pilihan untuk selectbox
-options = ["Informasi Dataset","Deskripsi Data"]
+options = ["Informasi Dataset", "Deskripsi Data"]
 selected_option = st.selectbox("Select:", options)
+
 if st.button("Show"):
     if selected_option == "Informasi Dataset":
-        st.subheader("Dataset Per Jam")
-        st.write(data1)
-        st.subheader("Dataset Per Hari")
-        st.write(data2)
+        col1, col2 = st.columns(2)  # Membuat dua kolom
+        with col1:
+            st.subheader("Dataset Per Jam")
+            st.write(data1)
+        with col2:
+            st.subheader("Dataset Per Hari")
+            st.write(data2)
 
     elif selected_option == "Deskripsi Data":
-        st.subheader("Deskripsi Dataset Per Jam")
-        st.write(data1.describe())
-        st.subheader("Deskripsi Dataset Per Hari")
-        st.write(data2.describe())
+        col1, col2 = st.columns(2)  # Membuat dua kolom
+        with col1:
+            st.subheader("Deskripsi Dataset Per Jam")
+            st.write(data1.describe())
+        with col2:
+            st.subheader("Deskripsi Dataset Per Hari")
+            st.write(data2.describe())
 
 
 # Menambahkan analisis lanjutan
@@ -99,3 +106,19 @@ if st.button("Tampilkan"):
         ax.set_xlabel('Jumlah Penyewaan', fontweight='bold')
         ax.set_ylabel('Frekuensi', fontweight='bold')
         st.pyplot(fig)
+
+# Pilihan untuk selectbox
+options = ["Informasi Dataset","Deskripsi Data"]
+selected_option = st.selectbox("Select:", options)
+if st.button("Show"):
+    if selected_option == "Informasi Dataset":
+        st.subheader("Dataset Per Jam")
+        st.write(data1)
+        st.subheader("Dataset Per Hari")
+        st.write(data2)
+
+    elif selected_option == "Deskripsi Data":
+        st.subheader("Deskripsi Dataset Per Jam")
+        st.write(data1.describe())
+        st.subheader("Deskripsi Dataset Per Hari")
+        st.write(data2.describe())
