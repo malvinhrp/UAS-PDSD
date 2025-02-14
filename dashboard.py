@@ -40,8 +40,36 @@ if st.button("Show"):
 
 
 # Menambahkan analisis lanjutan
+# Membuat dua kolom
+
+col1, col2 = st.columns(2)
+
+# Visualisasi Rata-rata Penyewaan per Jam di kolom pertama
+with col1:
+    st.subheader("Rata-rata Penyewaan per Jam")
+    st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per jam """)
+    rata_rata_penyewaan_per_jam = data1.groupby('hr')['cnt'].mean()
+    fig, ax = plt.subplots()
+    rata_rata_penyewaan_per_jam.plot(kind='bar', color='red', edgecolor='black', ax=ax)
+    ax.set_title('Rata-rata Penyewaan per Jam')
+    ax.set_xlabel('Jam')
+    ax.set_ylabel('Rata-rata Penyewaan')
+    st.pyplot(fig)
+
+# Visualisasi Rata-rata Penyewaan per Hari di kolom kedua
+with col2:
+    st.subheader("Rata-rata Penyewaan per Hari")
+    st.write("""Pada visualisasi ini, kita dapat melihat grafik yang menampilkan rata-rata penyewaan sepeda per hari """)
+    rata_rata_penyewaan_per_hari = data1.groupby('weekday')['cnt'].mean()
+    fig, ax = plt.subplots()
+    rata_rata_penyewaan_per_hari.plot(kind='bar', color='skyblue', edgecolor='black', ax=ax)
+    ax.set_title('Rata-rata Penyewaan per Hari')
+    ax.set_xticks(ticks=np.arange(7), labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'], fontweight='bold', rotation=0)
+    ax.set_ylabel('Rata-rata Penyewaan')
+    st.pyplot(fig)
+
 # Pilihan untuk selectbox
-options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
+'''options = ["Rata-rata Penyewaan per Jam","Rata-rata Penyewaan per Hari","Rata-rata Penyewaan per Bulan", "Rata-rata Penyewaan per Musim", "Distribusi Jumlah Penyewaan"]
 selected_option = st.selectbox("Pilih Visualisasi Analisis Lanjutan:", options)
 
 # Visualisasi Rata-rata Penyewaan per Jam
@@ -68,7 +96,7 @@ if st.button("Tampilkan"):
         ax.set_title('Rata-rata Penyewaan per Hari')
         ax.set_xticks(ticks=np.arange(7), labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'], fontweight='bold', rotation=0)
         ax.set_ylabel('Rata-rata Penyewaan')
-        st.pyplot(fig)
+        st.pyplot(fig)'''
 
 # Rata-rata penyewaan berdasarkan bulan
     elif selected_option == "Rata-rata Penyewaan per Bulan":
